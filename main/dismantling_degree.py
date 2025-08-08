@@ -1,4 +1,5 @@
 # Zebrafishproject – degree centrality version
+
 from __future__ import annotations
 import os
 import time
@@ -52,17 +53,18 @@ def _lcc_cugraph(g, removed: set[int], orig_size: int) -> float:
 
 
 def _degree_cugraph(g):
-    deg = cugraph.degree(g)
-    deg = deg.sort_values("degree", ascending=False)
+    deg = cugraph.degree_centrality(g)
+    deg = deg.sort_values("degree_centrality", ascending=False)
     return deg['vertex'].to_arrow().to_pylist()
 
 
 def _lcc_graph_tool(g_gt: gt.Graph, removed: set[int], orig_size: int) -> float:
-    g = gt.Graph(g_gt)
-    vfilt = g.new_vertex_property("bool")
-    for v in g.vertices():
+
+    vfilt = g_gt.new_vertex_property("bool")
+    for v in g_gt.vertices():
         vfilt[v] = int(v) not in removed
-    g.set_vertex_filter(vfilt)
+
+    g = gt.Graph(gt.GraphView(g_gt, vfilt), prune=True)
     if g.num_vertices() == 0:
         return 0.0
     comp, _ = gt.label_components(g, directed=g.is_directed())
@@ -75,7 +77,6 @@ def _degree_graph_tool(g_gt: gt.Graph):
     pairs = [(int(v), deg[v]) for v in g_gt.vertices()]
     pairs.sort(key=lambda x: x[1], reverse=True)
     return [v for v, _ in pairs]
-
 
 def main():
     start_total = time.time()
@@ -111,25 +112,23 @@ def main():
         )
 
         wcc = cugraph.weakly_connected_components(g_cu)
-        original_lcc_size = wcc['labels'].value_counts().max()
+        orig_size = wcc['labels'].value_counts().max()
+        print("Initial largest component size (vertices):", orig_size)
 
         start = time.time()
-        sorted_nodes = _degree_cugraph(g_cu)         
+        sorted_nodes = _degree_cugraph(g_cu)
         print(f"Degree centrality time: {time.time() - start:.2f} s")
-
-        lcc_func = lambda rem: _lcc_cugraph(g_cu, rem, original_lcc_size)
+        lcc_func = lambda rem: _lcc_cugraph(g_cu, rem, orig_size)
 
     else:
         comp, _ = gt.label_components(g_gt, directed=g_gt.is_directed())
-        original_lcc_size = max(np.bincount(comp.a))
+        orig_size = max(np.bincount(comp.a))
+        print("Initial largest component size (vertices):", orig_size)
 
         start = time.time()
-        sorted_nodes = _degree_graph_tool(g_gt)     
+        sorted_nodes = _degree_graph_tool(g_gt)
         print(f"Degree centrality time: {time.time() - start:.2f} s")
-
-        lcc_func = lambda rem: _lcc_graph_tool(g_gt, rem, original_lcc_size)
-
-    print("Initial largest component size:", original_lcc_size)
+        lcc_func = lambda rem: _lcc_graph_tool(g_gt, rem, orig_size)
 
     target_lcc = 20.0
     max_nodes_to_remove = 100000
@@ -140,12 +139,10 @@ def main():
     for node in sorted_nodes:
         if lcc_values[-1] <= target_lcc or len(removed_nodes) >= max_nodes_to_remove:
             break
-
         removed_nodes.append(int(node))
         current_lcc = lcc_func(set(removed_nodes))
         lcc_values.append(current_lcc)
         nodes_removed_list.append(len(removed_nodes))
-
         print(f"Removed {len(removed_nodes):5d} nodes, LCC = {current_lcc:6.2f}%")
 
     plt.figure(figsize=(12, 7))
