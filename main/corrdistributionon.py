@@ -1,4 +1,4 @@
-#zebrafish-project
+#zebrafishproject
 #!/usr/bin/env python
 # corr_analysis.py
 import h5py
