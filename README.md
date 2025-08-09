@@ -1,5 +1,5 @@
 
-Welcome to Zebrafish Project!
+###**Welcome to Zebrafish Project!**
 
 | Zebragdm LCC Reduction Curve| Other Methods' LCC Reduction Curve|
 |------|------|
@@ -12,7 +12,7 @@ Welcome to Zebrafish Project!
 | ![图1](docs/CPU_of_Zebragdm.gif) | ![图2](docs/GPU_of_Zebragdm.gif) |
 
 
-| Zebragdm_on_the_Corruption_Dataset|
+**Zebragdm_on_the_Corruption_Dataset**
 ![演示图](docs/Zebragdm_on_the_Corruption_Dataset.gif)
 
 
