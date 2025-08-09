@@ -4,7 +4,9 @@ Welcome to Zebrafish Project!
 
 
 
+If you want to quickly use our models and algorithms, please read the `README.md` file carefully.
 
+You can use the following command to quickly set up an environment with CUDA 11.8.
 
 `git clone https://github.com/HKUJUNE/ZebrafishProject.git`
 
