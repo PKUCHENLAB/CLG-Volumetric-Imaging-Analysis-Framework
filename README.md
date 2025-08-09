@@ -3,13 +3,13 @@ Welcome to Zebrafish Project!
 
 | 图 1 | 图 2 |
 |------|------|
-| ![图1](docs/Zebragdm_LCC_Reduction_Curve) | ![图2](docs/gdmnc) |
+| ![图1](docs/Zebragdm_LCC_Reduction_Curve.png) | ![图2](docs/gdmnc.png) |
 
 
 
 | 图 1 | 图 2 |
 |------|------|
-| ![图1](docs/CPU_of_Zebragdm) | ![图2](docs/GPU_of_Zebragdm) |
+| ![图1](docs/CPU_of_Zebragdm.gif) | ![图2](docs/GPU_of_Zebragdm.gif) |
 
 
 ![演示图](docs/Zebragdm_on_the_Corruption_Dataset.gif)
