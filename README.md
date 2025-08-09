@@ -1,8 +1,7 @@
 Welcome to Zebrafish Project!
 
 
-![演示图](doc\Zebragdm LCC Reduction Curve on the Corruption Dataset.png)
-
+![演示图](docs/Zebragdm_LCC_Reduction_Curve_on_the_Corruption_Dataset.png)
 
 If you want to quickly use our models and algorithms, please read the `README.md` file carefully.
 
