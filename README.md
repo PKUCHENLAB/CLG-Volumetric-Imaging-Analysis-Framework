@@ -5,8 +5,14 @@ Zebrafish Project
 
 
 ```bash
-git clone https://github.com/your-username/gdm.git
-cd zebragdm
+git clone https://github.com/HKUJUNE/ZebrafishProject.git
+cd main```
+
+
+
+```bash
+micromamba env create -f environment.yml -n zebragdm
+micromamba activate zebragdm```
 
 If you want to compute the correlation matrix of your time-series data and choose a threshold based on the distribution of correlations, please run the code file `ZebrafishProject\main\corrdistributionon.py`. In this script, we provide the distribution lines for four percentiles (95 %, 90 %, 85 %, 80 %) as candidate thresholds, and you will also obtain the corresponding visualization. You can choose an appropriate threshold and correlation-value rule according to the observed distribution to construct your network.
 
