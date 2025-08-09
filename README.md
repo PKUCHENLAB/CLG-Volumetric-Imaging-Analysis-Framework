@@ -30,7 +30,7 @@ If you are satisfied with the network you have built, it’s time to start disma
 
 `python dismantling_XXX.py`
 
-`Tip: GPU acceleration can speed up dismantling, but it incurs additional cost. If your network is small—e.g., only a few hundred nodes—using the CPU implementation is usually the better choice.`
+`Tip: GPU acceleration can speed up dismantling, but it incurs additional cost. If your network is small—e.g.,only a few hundred nodes—using the CPU implementation is usually the better choice.`
 
 
 
