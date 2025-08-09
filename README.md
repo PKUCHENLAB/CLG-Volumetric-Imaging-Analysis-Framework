@@ -1,13 +1,13 @@
 
 Welcome to Zebrafish Project!
 
-| 图 1 | 图 2 |
+| Zebragdm LCC Reduction Curve| Other Methods' LCC Reduction Curve|
 |------|------|
-| ![图1](docs/Zebragdm_LCC_Reduction_Curve.png) | ![图2](docs/gdmnc.png) |
+| ![Zebragdm LCC Reduction Curve](docs/Zebragdm_LCC_Reduction_Curve.png) | ![Other Methods' LCC Reduction Curve](docs/gdmnc.png) |
 
 
 
-| 图 1 | 图 2 |
+| CPU Version of Zebragdm| GPU Version of Zebragdm|
 |------|------|
 | ![图1](docs/CPU_of_Zebragdm.gif) | ![图2](docs/GPU_of_Zebragdm.gif) |
 
