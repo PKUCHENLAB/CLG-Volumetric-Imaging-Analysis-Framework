@@ -12,10 +12,8 @@ Welcome to Zebrafish Project!
 | ![图1](docs/CPU_of_Zebragdm.gif) | ![图2](docs/GPU_of_Zebragdm.gif) |
 
 
+| Zebragdm_on_the_Corruption_Dataset|
 ![演示图](docs/Zebragdm_on_the_Corruption_Dataset.gif)
-
-
-
 
 
 
