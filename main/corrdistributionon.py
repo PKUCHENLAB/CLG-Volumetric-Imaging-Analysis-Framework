@@ -1,6 +1,6 @@
-#zebrafishproject
-#!/usr/bin/env python
-# corr_analysis.py
+#zebrafishproject-corr_analysis
+
+
 import h5py
 import numpy as np
 import matplotlib.pyplot as plt

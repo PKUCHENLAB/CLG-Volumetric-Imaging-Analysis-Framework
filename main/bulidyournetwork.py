@@ -1,6 +1,4 @@
-#ZebrafishProject
-#!/usr/bin/env python
-# build_network_trace.py
+#ZebrafishProject-build_network
 
 import os
 import numpy as np
