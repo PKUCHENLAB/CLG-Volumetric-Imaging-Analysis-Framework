@@ -1,7 +1,24 @@
+
 Welcome to Zebrafish Project!
+
+| 图 1 | 图 2 |
+|------|------|
+| ![图1](docs/Zebragdm_LCC_Reduction_Curve) | ![图2](docs/gdmnc) |
+
+
+
+| 图 1 | 图 2 |
+|------|------|
+| ![图1](docs/CPU_of_Zebragdm) | ![图2](docs/GPU_of_Zebragdm) |
 
 
 ![演示图](docs/Zebragdm_on_the_Corruption_Dataset.gif)
+
+
+
+
+
+
 
 If you want to quickly use our models and algorithms, please read the `README.md` file carefully.
 
