@@ -1,15 +1,17 @@
-Zebrafish Project
+Welcome to Zebrafish Project!
 
 
 
 
 
-quick start
+
 
 `git clone https://github.com/HKUJUNE/ZebrafishProject.git`
+
 `cd main`
 
 `micromamba env create -f environment.yml -n zebragdm`
+
 `micromamba activate zebragdm`
 
 
