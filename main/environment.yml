@@ -1,5 +1,5 @@
 # zebrafishproject-environment.yml
-# CUDA 11.8 + RAPIDS 25.02 + PyTorch 2.1.2 
+# CUDA 11.8 + RAPIDS 24.12 + PyTorch 2.1.2 
 
 name: zebragdm_cuda118
 
