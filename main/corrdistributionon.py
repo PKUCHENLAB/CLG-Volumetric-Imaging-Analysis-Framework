@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns  
 
-file_path = '/usr/bin/env/yourdataset/yourdate.h5'
+file_path = '/usr/bin/env/yourdataset/yourdata.h5'
 with h5py.File(file_path, 'r') as f:
     data = f['trace'][:]        
 print('Loaded data shape:', data.shape)
