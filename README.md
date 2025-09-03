@@ -1,6 +1,9 @@
 
 ### **Welcome to Zebrafish Project!**    
 
+
+![演示图](docs/Composite.png)   
+
 | Zebragdm LCC Reduction Curve| Other Methods' LCC Reduction Curve|
 |------|------|
 | ![Zebragdm LCC Reduction Curve](docs/Zebragdm_LCC_Reduction_Curve.png) | ![Other Methods' LCC Reduction Curve](docs/gdmnc.png) |    
