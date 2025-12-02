@@ -19,7 +19,7 @@
 ![演示图](docs/Zebragdm_on_the_Corruption_Dataset.gif)   
 
 
-## 简介 (Introduction)
+## 💡简介 (Introduction)
 
 本仓库包含了论文 **"Comprehensive Label–Guided Volumetric Imaging Enables Accurate Single-Neuron Mapping and Network Reconstruction and Analysis"** 中使用的完整分析流程代码。
 
@@ -28,7 +28,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
 
 
 
-## 系统流程概览 (Pipeline Overview)
+## 📌系统流程概览 (Pipeline Overview)
 
 整个处理流程分为以下四个主要模块：
 
@@ -39,7 +39,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
 
 ---
 
-## 1. 图像预处理 (Image Preprocessing)
+## 1️⃣ 图像预处理 (Image Preprocessing)
 
 ### 结构像处理 (Structural Imaging - mRuby3)
 为了提升细胞核分割的准确率，我们首先对 mRuby3 通道进行稀疏解卷积和局部对比度归一化。
@@ -65,7 +65,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
 
 ---
 
-## 2. 3D 结构分割 (3D Structural Segmentation)
+## 2️⃣ 3D 结构分割 (3D Structural Segmentation)
 
 这是 CLG 框架的核心步骤之一，利用细胞核通道提供真实的 3D 神经元位置信息。
 
@@ -83,7 +83,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
 
 ---
 
-## 3. 单神经元信号提取与校准 (Signal Extraction & 3D Calibration)
+## 3️⃣ 单神经元信号提取与校准 (Signal Extraction & 3D Calibration)
 
 此步骤将功能信号映射到 3D 结构上，并修正轴向重复计数（即同一个细胞在不同层被多次计算）。
 
@@ -99,7 +99,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
 
 ---
 
-## 4. 网络构建与分析 (Network Construction & Analysis)
+## 4️⃣ 网络构建与分析 (Network Construction & Analysis)
 
 基于校准后的单神经元活动数据，构建功能网络并进行拓扑分析。
 
@@ -143,7 +143,7 @@ python main/networkdismantling/dismantling_XXX.py
 
 ---
 
-## 环境依赖 (Dependencies)
+## 🔧环境依赖 (Dependencies)
 
 You can use the following command to quickly set up an environment with CUDA 11.8.
 
@@ -167,7 +167,7 @@ micromamba activate zebragdm
 
 
 
-## 引用 (Citation)
+## ❤️引用 (Citation)
 
 如果您使用了本代码或参考了我们的方法，请引用我们的论文：
 
@@ -175,7 +175,7 @@ micromamba activate zebragdm
 
 ---
 
-### 联系方式 (Contact)
+### 📮联系方式 (Contact)
 
 如有疑问，请联系: [Your Email]
 
