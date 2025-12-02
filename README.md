@@ -1,4 +1,4 @@
-# CLG Volumetric Imaging & Analysis Framework
+# 🔖CLG Volumetric Imaging & Analysis Framework
 
 **Comprehensive Label–Guided (CLG) Volumetric Imaging Enables Accurate Single-Neuron Mapping and Network Reconstruction and Analysis**
 
@@ -132,13 +132,14 @@ python main/networkdismantling/bulidyournetwork.py
     *   我们使用并改进了基于机器学习的图拆解算法 (**GDM**)。
     *   **Modification:** 我们扩充了训练集（包含 Watts-Strogatz 和模块化图模型）以适应生物神经网络特性。
     *   **Original Algorithm Reference:** [GDM by Grassia et al.](https://github.com/marcograssia/GDM) (Check reference [44] in paper)
-    *   **Our Improved GDM Code:** `If you are satisfied with the network you have built, it’s time to start dismantling it! We provide several code files to help you dismantle your network ( `main/networkdismantling/dismantling_XXX.py `), each runnable on either CPU or GPU. Specifically, we offer dismantling strategies based on degree centrality, betweenness centrality, and a new method—`zebragdm`—that incorporates multiple optimizations on Marco Grassia et al.’s GDM framework (Machine-learning dismantling and early-warning signals of disintegration in complex systems. *Nature Communications*, 2021, 12(1): 5190). If you wish to use a dismantling method that incorporates multiple metrics, please apply the `zebragdm` model to your data, and you will need to adjust the relevant parameters in the code. Conversely, if you opt for a single-metric dismantling method, no parameter adjustments are necessary. Choose the approach that best suits your research question, and set your dismantling target value directly in the code file. The final outputs will include detailed information on the dismantled nodes and a visualization of the dismantling process.
+
+**Our Network Dismantling Code**: If you are satisfied with the network you have built, it’s time to start dismantling it! We provide several code files to help you dismantle your network ( `main/networkdismantling/dismantling_XXX.py `), each runnable on either CPU or GPU. Specifically, we offer dismantling strategies based on degree centrality, betweenness centrality, and a new method—`zebragdm`—that incorporates multiple optimizations on Marco Grassia et al.’s GDM framework (Machine-learning dismantling and early-warning signals of disintegration in complex systems. *Nature Communications*, 2021, 12(1): 5190). If you wish to use a dismantling method that incorporates multiple metrics, please apply the `zebragdm` model to your data, and you will need to adjust the relevant parameters in the code. Conversely, if you opt for a single-metric dismantling method, no parameter adjustments are necessary. Choose the approach that best suits your research question, and set your dismantling target value directly in the code file. The final outputs will include detailed information on the dismantled nodes and a visualization of the dismantling process.
 
 ```bash
 python main/networkdismantling/dismantling_XXX.py
 ```
 
-**Tip: GPU acceleration can speed up dismantling, but it incurs additional cost. If your network is small—e.g., only a few hundred nodes—using the CPU implementation is usually the better choice.**`
+**Tip: GPU acceleration can speed up dismantling, but it incurs additional cost. If your network is small—e.g., only a few hundred nodes—using the CPU implementation is usually the better choice.**
 
 ---
 
