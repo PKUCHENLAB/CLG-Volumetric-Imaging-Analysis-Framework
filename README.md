@@ -57,7 +57,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
 *   **Motion Correction:** 使用 **NoRMCorre** 进行刚性或非刚性运动校正。
     *   **External Link:** [NoRMCorre](https://github.com/flatironinstitute/NoRMCorre)
     *   **Usage in CLG:** 针对 512×512 图像，主要参数为 `patch_size=128`, `overlap=32`, `iterations=2`；针对 1024×1024 图像，推荐使用 `patch_size=256`, `overlap=64`, `iterations=2`（详见论文 Methods）。
-    *   **Our Code:** `src/registration/run_functional_registration.m` (基于 NoRMCorre 封装的通用配准脚本)
+    *   **Our Code:** `main/registration/run_functional_registration.m` (基于 NoRMCorre 封装的通用配准脚本)
     
 *   **Denoising:** 使用自监督深度学习方法 **SUPPORT** 进行去噪。
     *   **External Link:** [SUPPORT](https://github.com/FlorentF9/SUPPORT) (或您使用的具体实现链接)
