@@ -167,7 +167,7 @@ micromamba activate zebragdm
 
 
 
-## ❤️引用 (Citation)
+## ✨引用 (Citation)
 
 如果您使用了本代码或参考了我们的方法，请引用我们的论文：
 
