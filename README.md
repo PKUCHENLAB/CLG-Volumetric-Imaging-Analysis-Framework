@@ -79,7 +79,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
         ```bash
         python -m cellpose --train --use_gpu --dir ./trainset --test_dir ./valset --pretrained_model cyto2 --learning_rate 0.1 --weight_decay 0.0001 --n_epochs 500 --verbose
         ```
-    *   **Pre-trained Models:** `models/clg_cellpose_model_for_zebrafish` (Our fine-tuned Cellpose model for zebrafish)
+    *   **Pre-trained Models:** Our fine-tuned Cellpose model for zebrafish. Model download link: XXX.XXX, please put the model file in the path:`main/models/clg_cellpose_model_for_zebrafish` 
 
 ---
 
@@ -91,7 +91,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
 2.  **3D Calibration (The "CLG" Step):**
     *   **原理:** 利用 3D 细胞核 mask 的唯一 ID，识别跨越多个成像层（Z-planes）的同一神经元。
     *   **操作:** 将属于同一个 3D ID 的多个层面的 ROI 信号进行合并（平均），从而消除冗余计数。
-    *   **Our Code:** `src/extraction/step2_signal_extraction_calibration.ipynb` (Python notebook for signal extraction and CLG 3D calibration)
+    *   **Our Code:** `main/extraction/step2_signal_extraction_calibration.ipynb` (Python notebook for signal extraction and CLG 3D calibration)
 3.  **ΔF/F Calculation:**
     *   使用 **AllenSDK** 计算相对荧光变化率。
     *   **External Link:** [AllenSDK](https://github.com/AllenInstitute/AllenSDK)
@@ -105,18 +105,40 @@ If you want to quickly use our models and algorithms, please read the `README.md
 
 ### 网络构建
 *   **Processing:** 去噪 (PCA) -> 相关性计算 (Pearson Correlation)。
+
+If you want to compute the correlation matrix of your time-series data and choose a threshold based on the distribution of correlations, please run the code file `main/networkdismantling/corrdistributionon.py`. In this script, we provide the distribution lines for four percentiles (95 %, 90 %, 85 %, 80 %) as candidate thresholds, and you will also obtain the corresponding visualization. You can choose an appropriate threshold and correlation-value rule according to the observed distribution to construct your network.
+
+```bash
+python main/networkdismantling/corrdistributionon.py
+```
+
+Once you have selected an appropriate threshold and correlation-value rule for building your network, proceed by running the code file `main/networkdismantling/bulidyournetwork.py`. In the script, set the input and output paths for your data file, specify your chosen rule for selecting correlation values, and define the threshold you have decided on. Then execute the script. We have also included network-visualization output file in the code. You can use the generated network plot to verify whether your chosen threshold and correlation-value rule meet your expectations.
+
+```bash
+python main/networkdismantling/bulidyournetwork.py
+```
+
+
 *   **NetworkX:** 用于计算 Degree, Eigenvector Centrality, Communicability 等指标。
     *   **External Link:** [NetworkX](https://networkx.org/)
-    *   **Analysis Script:** `src/analysis/step3_network_construction_analysis.ipynb`
+    *   **Analysis Script:** `main/analysis/step3_network_construction_analysis.ipynb`
+
+
 
 ### 高级网络分析
 *   **Coarse-Graining:** 为了处理大规模网络，首先进行粗粒化处理。
-    *   **Code:** `[请填入粗粒化代码，例如: analysis/coarse_graining.py]`
+    *   **Code link:** `(https://www.github.com/Bmunn/ICG)`
 *   **Network Dismantling (GDM):**
     *   我们使用并改进了基于机器学习的图拆解算法 (**GDM**)。
     *   **Modification:** 我们扩充了训练集（包含 Watts-Strogatz 和模块化图模型）以适应生物神经网络特性。
     *   **Original Algorithm Reference:** [GDM by Grassia et al.](https://github.com/marcograssia/GDM) (Check reference [44] in paper)
-    *   **Our Improved GDM Code:** `[请填入您改进后的GDM代码，例如: analysis/gdm_dismantling_improved.py]`
+    *   **Our Improved GDM Code:** `If you are satisfied with the network you have built, it’s time to start dismantling it! We provide several code files to help you dismantle your network ( `main/networkdismantling/dismantling_XXX.py `), each runnable on either CPU or GPU. Specifically, we offer dismantling strategies based on degree centrality, betweenness centrality, and a new method—`zebragdm`—that incorporates multiple optimizations on Marco Grassia et al.’s GDM framework (Machine-learning dismantling and early-warning signals of disintegration in complex systems. *Nature Communications*, 2021, 12(1): 5190). If you wish to use a dismantling method that incorporates multiple metrics, please apply the `zebragdm` model to your data, and you will need to adjust the relevant parameters in the code. Conversely, if you opt for a single-metric dismantling method, no parameter adjustments are necessary. Choose the approach that best suits your research question, and set your dismantling target value directly in the code file. The final outputs will include detailed information on the dismantled nodes and a visualization of the dismantling process.
+
+```bash
+python main/networkdismantling/dismantling_XXX.py
+```
+
+**Tip: GPU acceleration can speed up dismantling, but it incurs additional cost. If your network is small—e.g., only a few hundred nodes—using the CPU implementation is usually the better choice.**`
 
 ---
 
@@ -125,7 +147,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
 You can use the following command to quickly set up an environment with CUDA 11.8.
 
 ```bash
-git clone https://github.com/HKUJUNE/ZebrafishProject.git
+git clone https://github.com/PKUCHENLAB/CLG-Volumetric-Imaging-Analysis-Framework.git
 ```
 
 ```bash
@@ -141,27 +163,6 @@ micromamba activate zebragdm
 ```
 
 
-
-
-If you want to compute the correlation matrix of your time-series data and choose a threshold based on the distribution of correlations, please run the code file `ZebrafishProject\main\corrdistributionon.py`. In this script, we provide the distribution lines for four percentiles (95 %, 90 %, 85 %, 80 %) as candidate thresholds, and you will also obtain the corresponding visualization. You can choose an appropriate threshold and correlation-value rule according to the observed distribution to construct your network.
-
-```bash
-python corrdistributionon.py
-```
-
-Once you have selected an appropriate threshold and correlation-value rule for building your network, proceed by running the code file `ZebrafishProject\main\bulidyournetwork.py`. In the script, set the input and output paths for your data file, specify your chosen rule for selecting correlation values, and define the threshold you have decided on. Then execute the script. We have also included network-visualization output file in the code. You can use the generated network plot to verify whether your chosen threshold and correlation-value rule meet your expectations.
-
-```bash
-python bulidyournetwork.py
-```
-
-If you are satisfied with the network you have built, it’s time to start dismantling it! We provide several code files to help you dismantle your network ( `ZebrafishProject\main\dismantling_XXX.py `), each runnable on either CPU or GPU. Specifically, we offer dismantling strategies based on degree centrality, betweenness centrality, and a new method—`zebragdm`—that incorporates multiple optimizations on Marco Grassia et al.’s GDM framework (Machine-learning dismantling and early-warning signals of disintegration in complex systems. *Nature Communications*, 2021, 12(1): 5190). If you wish to use a dismantling method that incorporates multiple metrics, please apply the `zebragdm` model to your data, and you will need to adjust the relevant parameters in the code. Conversely, if you opt for a single-metric dismantling method, no parameter adjustments are necessary. Choose the approach that best suits your research question, and set your dismantling target value directly in the code file. The final outputs will include detailed information on the dismantled nodes and a visualization of the dismantling process.
-
-```bash
-python dismantling_XXX.py
-```
-
-**Tip: GPU acceleration can speed up dismantling, but it incurs additional cost. If your network is small—e.g., only a few hundred nodes—using the CPU implementation is usually the better choice.**
 
 
 
