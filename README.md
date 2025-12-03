@@ -60,7 +60,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
     *   **Our Code:** `main/registration/run_functional_registration.m` (基于 NoRMCorre 封装的通用配准脚本)
     
 *   **🔹Denoising:** 使用自监督深度学习方法 **SUPPORT** 进行去噪。
-    *   **External Link:** [SUPPORT](https://github.com/FlorentF9/SUPPORT) (或您使用的具体实现链接)
+    *   **External Link:** [SUPPORT](https://github.com/FlorentF9/SUPPORT)
     *   **Usage:** 针对时间序列功能像进行训练和推理。
 
 ---
