@@ -51,7 +51,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
 
 *   **🔹Local Contrast Normalization (局部对比度归一化):**
     *   为了应对组织深度的光强不均匀，我们实施了滑动窗口归一化。
-    *   **Our Code:** `[请填入您的代码路径，例如: preprocessing/local_normalization.py]`
+    *   **Our Code:** `src/preprocessing/local_normalization.py` (Python script for Local Contrast Normalization)
 
 ### 🟠功能像处理 (Functional Imaging - GCaMP6s)
 *   **🔸Motion Correction:** 使用 **NoRMCorre** 进行刚性或非刚性运动校正。
