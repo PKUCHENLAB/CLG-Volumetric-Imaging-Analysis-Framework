@@ -71,7 +71,7 @@ If you want to quickly use our models and algorithms, please read the `README.md
 
 *   **🟤Deep Learning Segmentation:** 我们使用了 **Cellpose 2** 算法。
     *   **External Link:** [Cellpose](https://github.com/MouseLand/cellpose)
-    *   我们使用的具体版本为Cellpose2。
+    *   具体版本链接：
     *   **External Link:** [Cellpose2](https://github.com/MouseLand/cellpose/releases/tag/v2.3.2)
     *   **Our Implementation:**
         *   我们使用预处理后的图像和人工标注数据重新训练了 Cellpose 模型。
