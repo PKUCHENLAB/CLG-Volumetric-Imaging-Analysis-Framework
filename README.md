@@ -19,11 +19,12 @@
 ![演示图](docs/Zebragdm_on_the_Corruption_Dataset.gif)   
 
 
-## 💡简介 (Introduction)
+## 💡 Introduction
 
-本仓库包含了论文 **"Comprehensive Label–Guided Volumetric Imaging Enables Accurate Single-Neuron Mapping and Network Reconstruction and Analysis"** 中使用的完整分析流程代码。
+This repository contains the complete analysis pipeline code used in the paper **"Comprehensive Label–Guided Volumetric Imaging Enables Accurate Single-Neuron Mapping and Network Reconstruction and Analysis"** 
 
-CLG 是一个整合了双通道成像（核定位结构像 + 胞质钙信号功能像）与深度学习分析的框架。它旨在解决双光子体积成像中常见的 **轴向过度计数 (Axial Overcounting)** 问题，实现高精度的单神经元提取和无偏倚的全脑网络重建。
+CLG is a framework that integrates dual-channel imaging (nuclear localization structural imaging + cytoplasmic calcium signaling functional imaging) with deep learning analysis. It is designed to address the common **axial overcounting** problem in two-photon volumetric imaging, enabling high-precision single-neuron extraction and unbiased whole-brain neural network reconstruction.
+
 If you want to quickly use our models and algorithms, please read the `README.md` file carefully.
 
 
