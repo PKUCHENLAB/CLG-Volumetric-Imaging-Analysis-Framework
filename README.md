@@ -174,7 +174,7 @@ micromamba activate zebragdm
 
 If you use this code or refer to our method, please cite our paper:
 
-> [Authors]. Comprehensive Label–Guided Volumetric Imaging Enables Accurate Single-Neuron Mapping and Network Reconstruction and Analysis.
+> Comprehensive Label–Guided Volumetric Imaging Enables Accurate Single-Neuron Mapping and Network Reconstruction and Analysis.
 
 ---
 
