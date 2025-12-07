@@ -54,31 +54,31 @@ To improve the accuracy of nucleus segmentation, we first perform sparse deconvo
     *   To address the uneven light intensity across the tissue depth, we implemented sliding window normalization.
     *   **Our Code:** `main/preprocessing/local_normalization.py` (Python script for Local Contrast Normalization)
 
-### 🟠功能像处理 (Functional Imaging - GCaMP6s)
-*   **🔸Motion Correction:** 使用 **NoRMCorre** 进行刚性或非刚性运动校正。
+### 🟠 Functional Imaging - GCaMP6s
+*   **🔸Motion Correction:**Perform rigid or non-rigid motion correction using NoRMCorre.**
     *   **External Link:** [NoRMCorre](https://github.com/flatironinstitute/NoRMCorre)
-    *   **Usage in CLG:** 针对 512×512 图像，主要参数为 `patch_size=128`, `overlap=32`, `iterations=2`；针对 1024×1024 图像，推荐使用 `patch_size=256`, `overlap=64`, `iterations=2`（详见论文 Methods）。
-    *   **Our Code:** `main/registration/run_functional_registration.m` (基于 NoRMCorre 封装的通用配准脚本)
+    *   **Usage in CLG:** For 512×512 images, the main parameters are `patch_size=128`, `overlap=32`, `iterations=2`；For 1024×1024 images，it is recommended to use `patch_size=256`, `overlap=64`, `iterations=2`
+    *   **Our Code:** `main/registration/run_functional_registration.m`
     
-*   **🔹Denoising:** 使用自监督深度学习方法 **SUPPORT** 进行去噪。
+*   **🔹Denoising:** Denoising using the self-supervised deep learning method **SUPPORT**.
     *   **External Link:** [SUPPORT](https://github.com/FlorentF9/SUPPORT)
-    *   **Usage:** 针对时间序列功能像进行训练和推理。
+    *   **Usage:** Perform training and inference on time series features.
 
 ---
 
-## 2️⃣ 3D 结构分割 (3D Structural Segmentation)
+## 2️⃣ 3D Structural Segmentation
 
-这是 CLG 框架的核心步骤之一，利用细胞核通道提供真实的 3D 神经元位置信息。
+This is one of the core steps of the CLG framework, which utilizes the nuclear channel to provide authentic 3D neuron position information.
 
-*   **🟤Deep Learning Segmentation:** 我们使用了 **Cellpose 2** 算法。
+*   **🟤Deep Learning Segmentation:** We used the **Cellpose 2** algorithm.
     *   **External Link:** [Cellpose](https://github.com/MouseLand/cellpose)
-    *   具体版本链接：
+    *   Specific version link：
     *   **External Link:** [Cellpose2](https://github.com/MouseLand/cellpose/releases/tag/v2.3.2)
     *   **Our Implementation:**
-        *   我们使用预处理后的图像和人工标注数据重新训练了 Cellpose 模型。
-        *   利用 Cellpose 的 3D 模式（拼接 2D 切片结果）重建完整的 3D 细胞核掩膜。
+        *  We retrained the Cellpose model using preprocessed images and manually annotated data.
+        *  Reconstruct the complete 3D nuclear mask using Cellpose's 3D mode (by stitching the 2D slice segmentation results).
     *   **Training/Inference Script:** 
-        我们使用以下命令进行模型训练：
+        We performed model training using the following command:
         ```bash
         python -m cellpose --train --use_gpu --dir ./trainset --test_dir ./valset --pretrained_model cyto2 --learning_rate 0.1 --weight_decay 0.0001 --n_epochs 500 --verbose
         ```
@@ -86,23 +86,23 @@ To improve the accuracy of nucleus segmentation, we first perform sparse deconvo
 
 ---
 
-## 3️⃣ 单神经元信号提取与校准 (Signal Extraction & 3D Calibration)
+## 3️⃣ Signal Extraction & 3D Calibration
 
-此步骤将功能信号映射到 3D 结构上，并修正轴向重复计数（即同一个细胞在不同层被多次计算）。
+This step maps the functional signals onto the 3D structure and corrects for axial overcounting (i.e., the same cell being counted multiple times across different z-slices).
 
-*   **🔵Registration:** 将功能像配准到结构像模板（见前文功能像处理部分的 NoRMCorre）。
+*   **🔵Registration:** Register the functional images to the structural image template (see NoRMCorre in the earlier functional image processing section).
 *   **🟣3D Calibration (The "CLG" Step):**
-    *   **原理:** 利用 3D 细胞核 mask 的唯一 ID，识别跨越多个成像层（Z-planes）的同一神经元。
-    *   **操作:** 将属于同一个 3D ID 的多个层面的 ROI 信号进行合并（平均），从而消除冗余计数。
+    *   **Principle:** By leveraging the unique ID assigned to each nucleus in the 3D nuclear mask, the same neuron spanning multiple imaging layers (Z-planes) can be identified.
+    *   **Operation:** Merge (average) the ROI signals from multiple layers belonging to the same 3D ID, thereby eliminating redundant counting.
     *   **Our Code:** `main/extraction/step2_signal_extraction_calibration.ipynb` (Python notebook for signal extraction and CLG 3D calibration)
 *   **⚫️ΔF/F Calculation:**
-    *   使用 **AllenSDK** 计算相对荧光变化率。
+    *   Use **AllenSDK** to compute the relative fluorescence change rate (ΔF/F₀ or ΔF/F).
     *   **External Link:** [AllenSDK](https://github.com/AllenInstitute/AllenSDK)
     *   **Usage:** `allensdk.brain_observatory.dff` module.
 
 ---
 
-## 4️⃣ 网络构建与分析 (Network Construction & Analysis)
+## 4️⃣ Network Construction & Analysis
 
 基于校准后的单神经元活动数据，构建功能网络并进行拓扑分析。
 
