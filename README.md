@@ -29,29 +29,29 @@ If you want to quickly use our models and algorithms, please read the `README.md
 
 
 
-## 📌系统流程概览 (Pipeline Overview)
+## 📌 Pipeline Overview
 
-整个处理流程分为以下四个主要模块：
+The entire processing pipeline is divided into the following four main modules:
 
-1.  **🟥图像预处理 (Image Preprocessing):** 结构像与功能像的去噪、解卷积与配准。
-2.  **🟧3D 结构分割 (3D Structural Segmentation):** 基于深度学习的细胞核分割。
-3.  **🟪单神经元信号提取与校准 (Signal Extraction & 3D Calibration):** 结合结构信息提取功能信号，并修正过度计数。
-4.  **🟦网络构建与分析 (Network Construction & Analysis):** 功能连接组学分析、网络拆解 (Dismantling) 与雪崩分析。
+1. **🟥 Image Preprocessing:** Denoising, deconvolution, and registration of structural and functional images.  
+2. **🟧 3D Structural Segmentation:** Deep learning-based segmentation of cell nuclei.  
+3. **🟪 Signal Extraction & 3D Calibration:** Extraction of functional signals using structural information, with correction of over-counting.  
+4. **🟦 Network Construction & Analysis:** Functional connectomics analysis, network dismantling, and avalanche analysis.
 
 ---
 
-## 1️⃣ 图像预处理 (Image Preprocessing)
+## 1️⃣ Image Preprocessing
 
-### 🔴结构像处理 (Structural Imaging - mRuby3)
-为了提升细胞核分割的准确率，我们首先对 mRuby3 通道进行稀疏解卷积和局部对比度归一化。
+### 🔴 Structural Imaging - mRuby3
+To improve the accuracy of nucleus segmentation, we first perform sparse deconvolution and local contrast normalization on the mRuby3 channel.
 
-*   **🔸Sparse Deconvolution (稀疏解卷积):**
-    *   我们使用了 **Sparse Deconvolution** 算法来提高图像信噪比和分辨率。
+*   **🔸Sparse Deconvolution :**
+    *   We employed the **Sparse Deconvolution** algorithm to improve the image signal-to-noise ratio (SNR) and resolution.
     *   **External Link:** [Sparse Deconvolution MATLAB Package (Windows Source)](https://github.com/WeisongZhao/Sparse-SIM/tree/master/src_win) (Reference: Zhao et al., Nat Biotechnol 2022)
-    *   **Usage in CLG:** 主要参数如下：`iterations=120`, `z_axis_continuity=1`, `image_fidelity=150`, `sparsity=6`, `deconv_iterations=8`（详见论文 Methods）。
+    *   **Usage in CLG:** The main parameters are as follows:`iterations=120`, `z_axis_continuity=1`, `image_fidelity=150`, `sparsity=6`, `deconv_iterations=8`。
 
-*   **🔹Local Contrast Normalization (局部对比度归一化):**
-    *   为了应对组织深度的光强不均匀，我们实施了滑动窗口归一化。
+*   **🔹Local Contrast Normalization:**
+    *   To address the uneven light intensity across the tissue depth, we implemented sliding window normalization.
     *   **Our Code:** `src/preprocessing/local_normalization.py` (Python script for Local Contrast Normalization)
 
 ### 🟠功能像处理 (Functional Imaging - GCaMP6s)
