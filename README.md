@@ -179,7 +179,7 @@ micromamba activate zebragdm
 
 ### 📮联系方式 (Contact)
 
-如有疑问，请联系: [Your Email]
+如有疑问，请联系: [liuxiang_paul@pku.edu.cn][junjie88@connect.hku.hk]
 
 
 
