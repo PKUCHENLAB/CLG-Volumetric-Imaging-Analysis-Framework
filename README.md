@@ -52,7 +52,7 @@ To improve the accuracy of nucleus segmentation, we first perform sparse deconvo
 
 *   **🔹Local Contrast Normalization:**
     *   To address the uneven light intensity across the tissue depth, we implemented sliding window normalization.
-    *   **Our Code:** `src/preprocessing/local_normalization.py` (Python script for Local Contrast Normalization)
+    *   **Our Code:** `main/preprocessing/local_normalization.py` (Python script for Local Contrast Normalization)
 
 ### 🟠功能像处理 (Functional Imaging - GCaMP6s)
 *   **🔸Motion Correction:** 使用 **NoRMCorre** 进行刚性或非刚性运动校正。
