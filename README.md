@@ -104,10 +104,10 @@ This step maps the functional signals onto the 3D structure and corrects for axi
 
 ## 4️⃣ Network Construction & Analysis
 
-基于校准后的单神经元活动数据，构建功能网络并进行拓扑分析。
+Based on the calibrated single-neuron activity data, construct a functional network and perform topological analysis.
 
-### 🟤网络构建
-*   **Processing:** 去噪 (PCA) -> 相关性计算 (Pearson Correlation)。
+### 🟤 Network Construction
+*   **Processing:** Denoising (PCA) → Correlation Calculation (Pearson Correlation)
 
 If you want to compute the correlation matrix of your time-series data and choose a threshold based on the distribution of correlations, please run the code file `main/networkdismantling/corrdistributionon.py`. In this script, we provide the distribution lines for four percentiles (95 %, 90 %, 85 %, 80 %) as candidate thresholds, and you will also obtain the corresponding visualization. You can choose an appropriate threshold and correlation-value rule according to the observed distribution to construct your network.
 
@@ -122,18 +122,18 @@ python main/networkdismantling/bulidyournetwork.py
 ```
 
 
-*   **NetworkX:** 用于计算 Degree, Eigenvector Centrality, Communicability 等指标。
+*   **NetworkX:** Used to compute metrics such as Degree, Eigenvector Centrality, and Communicability.
     *   **External Link:** [NetworkX](https://networkx.org/)
     *   **Analysis Script:** `main/analysis/step3_network_construction_analysis.ipynb`
 
 
 
-### 🔴高级网络分析
-*   **🔸Coarse-Graining:** 为了处理大规模网络，首先进行粗粒化处理。
+### 🔴 Advanced Network Analysis
+*   **🔸Coarse-Graining:** To handle large-scale networks, we first perform coarse-graining.
     *   **Code link:** `(https://www.github.com/Bmunn/ICG)`
 *   **🔹Network Dismantling (GDM):**
-    *   我们使用并改进了基于机器学习的图拆解算法 (**GDM**)。
-    *   **Modification:** 我们扩充了训练集（包含 Watts-Strogatz 和模块化图模型）以适应生物神经网络特性。
+    *   We have adopted and enhanced a machine-learning-based graph dismantling algorithm (**GDM**).
+    *   **Modification:** We expanded the training set—incorporating Watts–Strogatz and modular graph models—to better capture the characteristics of biological neural networks.
     *   **Original Algorithm Reference:** [GDM by Grassia et al.](https://github.com/marcograssia/GDM) (Check reference [44] in paper)
 
 **Our Network Dismantling Code**: If you are satisfied with the network you have built, it’s time to start dismantling it! We provide several code files to help you dismantle your network ( `main/networkdismantling/dismantling_XXX.py `), each runnable on either CPU or GPU. Specifically, we offer dismantling strategies based on degree centrality, betweenness centrality, and a new method—`zebragdm`—that incorporates multiple optimizations on Marco Grassia et al.’s GDM framework (Machine-learning dismantling and early-warning signals of disintegration in complex systems. *Nature Communications*, 2021, 12(1): 5190). If you wish to use a dismantling method that incorporates multiple metrics, please apply the `zebragdm` model to your data, and you will need to adjust the relevant parameters in the code. Conversely, if you opt for a single-metric dismantling method, no parameter adjustments are necessary. Choose the approach that best suits your research question, and set your dismantling target value directly in the code file. The final outputs will include detailed information on the dismantled nodes and a visualization of the dismantling process.
@@ -146,7 +146,7 @@ python main/networkdismantling/dismantling_XXX.py
 
 ---
 
-## 🔧环境依赖 (Dependencies)
+## 🔧 Dependencies
 
 You can use the following command to quickly set up an environment with CUDA 11.8.
 
@@ -170,17 +170,17 @@ micromamba activate zebragdm
 
 
 
-## ✨引用 (Citation)
+## ✨ Citation
 
-如果您使用了本代码或参考了我们的方法，请引用我们的论文：
+If you use this code or refer to our method, please cite our paper:
 
 > [Authors]. Comprehensive Label–Guided Volumetric Imaging Enables Accurate Single-Neuron Mapping and Network Reconstruction and Analysis.
 
 ---
 
-### 📮联系方式 (Contact)
+### 📮 Contact
 
-如有疑问，请联系: [liuxiang_paul@pku.edu.cn][junjie88@connect.hku.hk]
+If you have any questions, please contact: [liuxiang_paul@pku.edu.cn][junjie88@connect.hku.hk]
 
 
 
