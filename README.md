@@ -100,6 +100,8 @@ This step maps the functional signals onto the 3D structure and corrects for axi
     *   **External Link:** [AllenSDK](https://github.com/AllenInstitute/AllenSDK)
     *   **Usage:** `allensdk.brain_observatory.dff` module.
 
+You can try this step using our test dataset at the Zenodo Link: XXX. And after downloading the dataset, you should put the file `fish4_example` in the path `main/extraction` 
+
 ---
 
 ## 4️⃣ Network Construction & Analysis
