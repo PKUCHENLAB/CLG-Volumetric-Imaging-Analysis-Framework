@@ -82,7 +82,7 @@ This is one of the core steps of the CLG framework, which utilizes the nuclear c
         ```bash
         python -m cellpose --train --use_gpu --dir ./trainset --test_dir ./valset --pretrained_model cyto2 --learning_rate 0.1 --weight_decay 0.0001 --n_epochs 500 --verbose
         ```
-    *   **Pre-trained Models:** Our fine-tuned Cellpose model for zebrafish. Model download link: XXX.XXX, please put the model file in the path:`main/models/clg_cellpose_model_for_zebrafish` 
+    *   **Pre-trained Models:** Our fine-tuned Cellpose model for zebrafish. Model path:`main/models/clg_cellpose_model_for_zebrafish.zip` 
 
 ---
 
