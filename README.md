@@ -157,7 +157,7 @@ git clone https://github.com/PKUCHENLAB/CLG-Volumetric-Imaging-Analysis-Framewor
 ```
 
 ```bash
-cd main
+cd CLG-Volumetric-Imaging-Analysis-Framework/
 ```
 
 ```bash
