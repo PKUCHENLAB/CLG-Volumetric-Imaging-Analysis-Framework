@@ -176,7 +176,7 @@ micromamba activate zebragdm
 
 ## ✨ Citation
 
-If you use this code or refer to our method, please cite our paper:
+If you use this code or refer to our method, please cite our paper. This is very important for us🤩:
 
 > Comprehensive Label–Guided Volumetric Imaging Enables Accurate Single-Neuron Mapping and Network Reconstruction and Analysis.
 
@@ -184,7 +184,7 @@ If you use this code or refer to our method, please cite our paper:
 
 ### 📮 Contact
 
-If you have any questions, please contact: [liuxiang_paul@pku.edu.cn][junjie88@connect.hku.hk]
+If you have any questions, please contact us🧐: [liuxiang_paul@pku.edu.cn][junjie88@connect.hku.hk]
 
 
 
