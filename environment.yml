@@ -1,0 +1,33 @@
+# zebrafishproject-environment.yml
+# CUDA 11.8 + RAPIDS 24.12 + PyTorch 2.1.2 
+
+name: zebragdm_cuda118
+
+  - rapidsai
+  - nvidia
+  - pytorch
+  - conda-forge
+
+dependencies:
+  - python=3.10
+  - cudatoolkit=11.8
+  - cudf=24.12
+  - cuml=24.12
+  - cugraph=24.12
+  - cuspatial=24.12
+  - cucim=24.12
+  - dask-cudf=24.12
+  - nx-cugraph=24.12
+  - cupy=12.*
+  - pytorch=2.1.2
+  - pytorch-cuda=11.8
+  - pyg=2.4.0
+  - pytorch-sparse=0.6.18
+  - pytorch-scatter=2.1.2
+  - pytorch-cluster=1.6.3
+  - numpy=1.24.4
+  - scipy=1.10.1
+  - matplotlib=3.7.3
+  - h5py=3.10.0
+  - graph-tool=2.45
+  - numba=0.59.1  
