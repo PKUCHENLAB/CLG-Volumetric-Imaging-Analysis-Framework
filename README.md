@@ -36,7 +36,7 @@ The entire processing pipeline is divided into the following four main modules:
 1. **🟥 Image Preprocessing:** Denoising, deconvolution, and registration of structural and functional images.  
 2. **🟧 3D Structural Segmentation:** Deep learning-based segmentation of cell nuclei.  
 3. **🟪 Signal Extraction & 3D Calibration:** Extraction of functional signals using structural information, with correction of over-counting.  
-4. **🟦 Network Construction & Analysis:** Functional connectomics analysis, network dismantling, and avalanche analysis.
+4. **🟦 Network Construction & Analysis:** Functional connectomics analysis, network diagnostics, and avalanche analysis.
 
 ---
 
