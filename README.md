@@ -132,7 +132,7 @@ python main/networkdismantling/bulidyournetwork.py
 
 
 
-### 🔴 Advanced Network Analysis
+### 🔴 Network Diagnostics
 *   **🔸Coarse-Graining:** To handle large-scale networks, we first perform coarse-graining.
     *   **Code link:** `(https://www.github.com/Bmunn/ICG)`
 *   **🔹Network Dismantling (GDM):**
