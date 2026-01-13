@@ -86,7 +86,7 @@ This is one of the core steps of the CLG framework, which utilizes the nuclear c
 
 ---
 
-## 3️⃣ Signal Extraction & 3D Calibration & Spatial Correlation Analysis
+## 3️⃣ Signal Extraction & 3D Calibration
 
 This step maps the functional signals onto the 3D structure and corrects for axial overcounting (i.e., the same cell being counted multiple times across different z-slices).
 
@@ -99,8 +99,7 @@ This step maps the functional signals onto the 3D structure and corrects for axi
     *   Use **AllenSDK** to compute the relative fluorescence change rate (ΔF/F₀ or ΔF/F). File path:`main/analysis/dff.py` 
     *   **External Link:** [AllenSDK](https://github.com/AllenInstitute/AllenSDK)
     *   **Usage:** `allensdk.brain_observatory.dff` module.
-*   **🔴Spatial Correlation Analysis:**
-    *   **Our Code:** `main/analysis/step3_spatial_correlation_analysis.ipynb` 
+
 
 You can try this step using our test dataset available at the Zenodo Link (Coming soon). And after downloading the dataset, you should put the file `fish4_example` in the path `main/extraction` 
 
@@ -108,7 +107,7 @@ You can try this step using our test dataset available at the Zenodo Link (Comin
 
 ---
 
-## 4️⃣ Network Construction & Analysis
+## 4️⃣ Network Construction & Spatial Correlation Analysis & Network Diagnostics
 
 Based on the calibrated single-neuron activity data, construct a functional network and perform topological analysis.
 
@@ -127,12 +126,12 @@ Once you have selected an appropriate threshold and correlation-value rule for b
 python main/networkdismantling/bulidyournetwork.py
 ```
 
-
 *   **NetworkX:** Used to compute metrics such as Degree, Eigenvector Centrality, and Communicability.
     *   **External Link:** [NetworkX](https://networkx.org/)
     *   **Analysis Script:** `main/analysis/step3_network_construction_analysis.ipynb`
 
-
+### 🔵 Spatial Correlation Analysis
+*   **Our Code:** `main/analysis/step3_spatial_correlation_analysis.ipynb` 
 
 ### 🔴 Network Diagnostics
 *   **🔸Coarse-Graining:** To handle large-scale networks, we first perform coarse-graining.
