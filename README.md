@@ -1,6 +1,6 @@
 # 🔖CLG Volumetric Imaging & Analysis Framework
 
-**Comprehensive Label–Guided (CLG) Volumetric Imaging Enables Accurate Single-Neuron Mapping and Network Reconstruction and Analysis**
+**Structural–functional calibration corrects axial overcounting and network distortion in volumetric calcium imaging**
 
 ![演示图](docs/Composite.png)   
 
@@ -179,7 +179,7 @@ micromamba activate zebragdm
 
 If you use this code or refer to our method, please cite our paper. This is very important for us🤩:
 
-> Comprehensive Label–Guided Volumetric Imaging Enables Accurate Single-Neuron Mapping and Network Reconstruction and Analysis.
+> Structural–functional calibration corrects axial overcounting and network distortion in volumetric calcium imaging.
 
 ---
 
