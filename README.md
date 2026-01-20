@@ -183,12 +183,12 @@ If you use this code or refer to our method, please cite our paper. This is very
 
 ---
 
-### 📮 Contact
+## 📮 Contact
 
 If you have any questions, please contact us🧐: [liuxiang_paul@pku.edu.cn][junjie88@connect.hku.hk]
 
 
-### 📄 License
+## 📄 License
 This project is open-sourced under the MIT License.
 
 
